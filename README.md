@@ -1,4 +1,6 @@
 # Knowledge-base-for-Word-Prediction
+Generate a knowledge-base for English word-prediction system, based on Google 3-Gram English dataset, using Amazon Elastic Map-Reduce (EMR). The produced knowledge-base indicates the probability of each word trigram
+found in the corpus. In addition examine the quality of the algorithm according to statistic measures and manual analysis.
 
 Link to Output files - https://emr-logs-mevuzarot.s3.amazonaws.com/output/
 
