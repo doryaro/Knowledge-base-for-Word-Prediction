@@ -1,50 +1,47 @@
-Students:
-Netanel Levi - 208463158
-Dor Yaron - 316083542
-
+# Knowledge-base-for-Word-Prediction
 
 Link to Output files - https://emr-logs-mevuzarot.s3.amazonaws.com/output/
 
-How to run the project:
-upload the .jar files to s3 :
-step1.jar
-step2.jar
-step3.jar
-step4.jar
-step5.jar
-step6.jar
-create an output folder for the output and for the logs
-Run Main.java class
+## How to run the project:
+create and upload .jar files to s3 from each of the steps: \
+step1.jar \
+step2.jar \
+step3.jar \
+step4.jar \
+step5.jar \
+step6.jar \
+create an output folder for the output and for the logs. \
+`Run Main.java class`
 
 
 
-Statistics:
-(for step 1)
-without local aggregation we the number of Reduce input recodes is - 23991894
-and their size -
-Physical memory (bytes) snapshot=35046412288
+## Statistics:
+(for step 1) \
+without local aggregation we the number of Reduce input recodes is - 23991894 \
+and their size - \
+Physical memory (bytes) snapshot=35046412288 \
 Virtual memory (bytes) snapshot=205854011392
 
-with local aggregation we the number of Reduced input recodes is - 600401
-and their size - 
-Physical memory (bytes) snapshot=33294630912
+with local aggregation we the number of Reduced input recodes is - 600401 \
+and their size -  \
+Physical memory (bytes) snapshot=33294630912 \
 Virtual memory (bytes) snapshot=205822668800
 
 
-(for step 3)
-without local aggregation we the number of Reduce input recodes is - 1500941
-and their size -
-Physical memory (bytes) snapshot=28452581376
+(for step 3) \
+without local aggregation we the number of Reduce input recodes is - 1500941 \
+and their size - \
+Physical memory (bytes) snapshot=28452581376 \
 Virtual memory (bytes) snapshot=215235567616
 
-with local aggregation we the number of Reduced input recodes is - 350559
-and their size - 
-Physical memory (bytes) snapshot=28799668224
+with local aggregation we the number of Reduced input recodes is - 350559 \
+and their size -  \
+Physical memory (bytes) snapshot=28799668224 \
 Virtual memory (bytes) snapshot=215782092800
 
 
 
-Analysis:
+## Analysis:
 we choosed 10 Trigrams and their top 5 next word:
 
 
@@ -109,26 +106,26 @@ we choosed 10 Trigrams and their top 5 next word:
 אמצע המאה השנייה	9.200730882894814E-7
 אמצע המאה השמונה	8.464583522296393E-7
 
-We can see from the trigrams above that Given the 2 trigrams "x1 x2 x3" and "y1 y2 y3". Even if the third word "x3" is smaller in alphabetical order than "y3", if the probability for trigram  "x1 x2 x3" is greater than the probability to "y1 y2 y3", than "x1 x2 x3" will be higher on the list.
+We can see from the trigrams above that Given the 2 trigrams "x1 x2 x3" and "y1 y2 y3". Even if the third word "x3" is smaller in alphabetical order than "y3", if the probability for trigram  "x1 x2 x3" is greater than the probability to "y1 y2 y3", than "x1 x2 x3" will be higher on the list. 
 
 
 
-Step1:
+### Step1:
 parse the input lines from the corpus and check that the Trigram is valid.
 divide the corpus into two parts - part0 and part1 based on their key.
 	
-Step2:
+### Step2:
 calculates the "r" base on the occurrences in part0+part1
 
-Step3:
+### Step3:
 Calculates and writes the N's and T's 
 
-Step4:
+### Step4:
 Takes the corresponding N's and T's from the Trigrams and combine them into a single record
 
-Step5:
+### Step5:
 Calculates the probability according to the formula
 
-Step6:
+### Step6:
 Sort the Trigrams according to the first two words and then according to the probability
 
